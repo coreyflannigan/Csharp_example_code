@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lab1</name>
+    </assembly>
+    <members>
+        <member name="T:Lab1.Employee">
+            <summary>
+            I, Sean Flannigan, 000270501 certify that this material is my original work. No other person's work has been used without due acknowledgement.
+            
+            19-09-2019
+            
+            Employee class of the Lab1 program, accepts params passed from the main class that are read in from a text file.
+            Stores the name, employee number, rate, hours, and gross pay of each Employee, and provides methods to return or set these variables.
+            </summary>
+        </member>
+        <member name="M:Lab1.Employee.#ctor(System.String,System.Int32,System.Decimal,System.Double)">
+            <summary>
+            Employee class constructor, accepts four params from the main class and stores them in local variables.
+            </summary>
+            <param name="name">The name of the Employee</param>
+            <param name="number">The employee number for the Employee</param>
+            <param name="rate">The hourly pay rate for the Employeee</param>
+            <param name="hours">The number of hours worked by the Employee</param>
+        </member>
+        <member name="M:Lab1.Employee.CalculateGross">
+            <summary>
+            Calculate method to determine Employee gross pay. Called in initial construction
+            and again any time hours or rate is set.
+            </summary>
+            <returns>A decimal value representing the Employee gross pay, to be stored in the variable gross</returns>
+        </member>
+        <member name="M:Lab1.Employee.GetGross">
+            <summary>
+            Get method for the gross variable.
+            Calculates the Employee's gross pay, rate * hours for 40 hours and under,
+            and time and a half pay for each hour of overtime. Returns the gross variable
+            after calculation.
+            </summary>
+            <returns>The decimal variable gross, which represents the gross pay.</returns>
+        </member>
+        <member name="M:Lab1.Employee.GetHours">
+            <summary>
+            Get method for hours variable.
+            </summary>
+            <returns>The double variable hours, which represents hours worked.</returns>
+        </member>
+        <member name="M:Lab1.Employee.GetName">
+            <summary>
+            Get method for name variable.
+            </summary>
+            <returns>The string variable name, which is the Employee's name.</returns>
+        </member>
+        <member name="M:Lab1.Employee.GetNumber">
+            <summary>
+            Get method for number variable.
+            </summary>
+            <returns>The int variable number, which is the employee number of the Employee.</returns>
+        </member>
+        <member name="M:Lab1.Employee.GetRate">
+            <summary>
+            Get method for the rate variable.
+            </summary>
+            <returns>The decimal variable rate, which is the hourly wage of the Employee.</returns>
+        </member>
+        <member name="M:Lab1.Employee.ToString">
+            <summary>
+            Overriden To String method. Formats a string made up of the variables contained in the
+            Employee class in order to apply proper spacing and $ signs.
+            </summary>
+            <returns>A string variable made up of the 5 variables contained in the Employee class.</returns>
+        </member>
+        <member name="M:Lab1.Employee.SetHours(System.Double)">
+            <summary>
+            Set method for the hours variable.
+            </summary>
+            <param name="hours">New number of hours worked by the Employee to be stored in the hours variable.</param>
+        </member>
+        <member name="M:Lab1.Employee.SetName(System.String)">
+            <summary>
+            Set method for the name variable.
+            </summary>
+            <param name="name">New name of the Employee to be stored in the name variable.</param>
+        </member>
+        <member name="M:Lab1.Employee.SetNumber(System.Int32)">
+            <summary>
+            Set method for the number variable.
+            </summary>
+            <param name="number">New employee number for the Employee to be stored in the number variable.</param>
+        </member>
+        <member name="M:Lab1.Employee.SetRate(System.Decimal)">
+            <summary>
+            Set method for the rate variable.
+            </summary>
+            <param name="rate">New hourly pay rate for the Employee to be stored in the rate variable.</param>
+        </member>
+        <member name="M:Lab1.Program.Main(System.String[])">
+            <summary>
+            I, Sean Flannigan, 000270501 certify that this material is my original work. No other person's work has been used without due acknowledgement.
+            
+            19-09-2019
+            
+            Main class of the Lab1 program. Accepts a text file with up to 100 lines to be read line by line then error checked before passing the broken down line entry into
+            an arry of Employee class objects to store the different values. Menu is drawn in console then user is prompted to select one of 5 sort options for the list of Employees.
+            User input is error checked, with valid entries being passed into the sort method where the data is sorted with insertion sort based on which option entered.
+            Array of sorted employees is displayed in console, and user is presented the menu again to either sort again or quit.
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Lab1.Program.InsertionSort(Lab1.Employee[],System.Int32)">
+            <summary>
+            Sorting method using the Insertion Sort algorithm. Accepts an array of Employee objects as well as an int representing the
+            sorting method requested. Method iterates over the array array.Length times advancing one index step at a time then compares
+            each side by side object, working backwards from that point to the beginning of the array and swapping objects based on ascending
+            or descending requirement, until array is iterated completely to the end.
+            
+            Algorithm learned and sourced from:
+            https://www.w3resource.com/csharp-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-6.php
+            </summary>
+            <param name="unsortedList">The array of Employee objects to be sorted.</param>
+            <param name="sortMethod">The int variable representing the user's choice of sorting method.</param>
+            <returns>The array of Employee objects, now sorted.</returns>
+        </member>
+        <member name="M:Lab1.Program.Menu">
+            <summary>
+            Void method used to display the menu to the user via console WriteLine.
+            </summary>
+        </member>
+        <member name="M:Lab1.Program.Headings">
+            <summary>
+            Void method used to display the headings for the Employee array via console WriteLine.
+            </summary>
+        </member>
+        <member name="M:Lab1.Program.Read(Lab1.Employee[])">
+            <summary>
+            Read method for the main class utilizing FileStream and StreamReader. Accepts an empty initialized Employee object
+            array in order to fill it with data. FileStream used to open a provided textfile, then StreamReader iterates through
+            the file to count how many lines are inside. If line count is over 100, an error is shown to the user and the empty
+            array is returned. Else, StreamReader will iterate over the file line by line, splitting up the entries based on ','s
+            and after a series of error handlings will pass the data on by creating a new Employee object and placing it in the array.
+            </summary>
+            <param name="emptyList">An empty initialized Employee object array.</param>
+            <returns>The Employee object array, either filled with data or empty based on file size.</returns>
+        </member>
+    </members>
+</doc>
