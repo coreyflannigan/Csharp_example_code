@@ -20,9 +20,10 @@ namespace Lab1 {
         /// <param name="args"></param>
         static void Main(string[] args) {
             // ****  PROGRAM CODE BEGINS HERE  ****
-
-            Console.WindowHeight = Console.LargestWindowHeight - 55;
-            Console.WindowWidth = Console.LargestWindowWidth - 154;
+            
+            // Set the Console size to ensure it fits data formatting
+            Console.WindowHeight = 30;
+            Console.WindowWidth = 90;
 
             // Variables initialized here, an empty Employee object array and two boolean flags.
 
